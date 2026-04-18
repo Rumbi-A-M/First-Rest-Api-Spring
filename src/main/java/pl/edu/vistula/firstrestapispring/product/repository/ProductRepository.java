@@ -1,25 +1,19 @@
 package pl.edu.vistula.firstrestapispring.product.repository;
-import org.springframework.stereotype.Repository;
+
 import pl.edu.vistula.firstrestapispring.product.domain.Product;
 
 import java.util.HashMap;
 import java.util.Map;
 
-@Repository
 public class ProductRepository {
-    protected final Map<Long, Product>map = new HashMap<>();
-    protected long counter = 1;
 
-    public Product save(Product entity){
-        setId(entity);
-        return entity;
+    private final Map<Long, Product> database = new HashMap<>();
+    private Long index = 1L;
+
+    public Product save(Product product) {
+        product.setId(index);
+        database.put(index, product);
+        index++;
+        return product;
     }
-
-    private Product setId(Product entity){
-        entity.setId(counter);
-        map.put(counter, entity);
-        counter++;
-        return entity;
-    }
-
 }

@@ -1,4 +1,4 @@
-package pl.edu.vistula.firstrestapispring.product.api.response;
+package pl.edu.vistula.firstrestapispring.product.api;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,13 +11,11 @@ import pl.edu.vistula.firstrestapispring.product.service.ProductService;
 @RequestMapping("/api/v1/products")
 public class ProductController {
 
-    private final ProductService productService;
-
-    public ProductController(ProductService productService) { this.productService = productService; }
+    private final ProductService service = new ProductService();
 
     @PostMapping
-    public ResponseEntity<ProductResponse> create(@RequestBody ProductRequest productRequest){
-        ProductResponse productResponse = productService.create(productRequest);
-        return new ResponseEntity<>(productResponse, HttpStatus.CREATED);
+    public ResponseEntity<ProductResponse> create(@RequestBody ProductRequest request) {
+        ProductResponse response = service.create(request);
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 }
