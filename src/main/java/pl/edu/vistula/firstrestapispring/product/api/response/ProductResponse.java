@@ -1,11 +1,12 @@
 package pl.edu.vistula.firstrestapispring.product.api.response;
 
 public class ProductResponse {
+    private final Long id;
+    private final String name;
 
-    private Long id;
-    private String name;
-
-    public ProductResponse() {
+    public ProductResponse(Long id, String name) {
+        this.id = id;
+        this.name = name;
     }
 
     public Long getId() {
@@ -14,13 +15,5 @@ public class ProductResponse {
 
     public String getName() {
         return name;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 }

@@ -4,7 +4,7 @@ public class ProductRequest {
 
     private String name;
 
-    public ProductRequest() {
+    public ProductRequest(String name) {
     }
 
     public String getName() {
