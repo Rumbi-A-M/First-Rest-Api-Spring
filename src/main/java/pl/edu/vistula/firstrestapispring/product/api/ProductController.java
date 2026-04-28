@@ -35,13 +35,6 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.OK).body(productResponse);
     }
 
-    @GetMapping
-    @Operation(summary = "Find all products")
-    public ResponseEntity<List<ProductResponse>> findAll() {
-        List<ProductResponse> productResponses = productService.findAll();
-        return ResponseEntity.status(HttpStatus.OK).body(productResponses);
-    }
-
     @PutMapping("/{id}")
     @Operation(summary = "Update product")
     public ResponseEntity<ProductResponse> update(
@@ -49,6 +42,13 @@ public class ProductController {
             @RequestBody UpdateProductRequest updateProductRequest) {
         ProductResponse productResponse = productService.update(id, updateProductRequest);
         return ResponseEntity.status(HttpStatus.OK).body(productResponse);
+    }
+
+    @GetMapping
+    @Operation(summary = "Find all products")
+    public ResponseEntity<List<ProductResponse>> findAll() {
+        List<ProductResponse> productResponses = productService.findAll();
+        return ResponseEntity.status(HttpStatus.OK).body(productResponses);
     }
 
     @DeleteMapping("/{id}")

@@ -1,6 +1,7 @@
 package pl.edu.vistula.firstrestapispring.product.api.response;
 
 public class ProductResponse {
+
     private final Long id;
     private final String name;
 
@@ -9,11 +10,6 @@ public class ProductResponse {
         this.name = name;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
+    public Long getId() { return id; }
+    public String getName() { return name; }
 }
